@@ -1,28 +1,171 @@
+/* General setup */
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.content {
+  margin: 30px;
+  text-decoration: none;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+
+
+/* NavBar.js */
+
+.navContainer {
+  display: flex;
+  height: 100px;
+  justify-content: flex-end;
+  margin: 30px 80px 0 0;
+  position:sticky;
+  top:0;
+  background-color: white;
+}
+
+.navContainer li {
+  font-size: 35px;
+}
+
+
+/* AllUsers.js */
+
+.allUsersContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.indivisual {
+  position: relative;
+  margin: 0 50px 50px 50px;
+  background-color: #007bff0e;
+  border-radius: 50%;
+  box-shadow:  1px 1px 20px 1px rgba(217,217,217,0.8);
+}
+
+.indivisual img {
+  width: 250px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 20px 1px rgba(217,217,217,0.8);
+}
+
+.overlay {
+  position: absolute;
+  border-radius: 50%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #569eeb;
+}
+
+.indivisual:hover .overlay {
+  opacity: 1;
+}
+
+.indivisualName {
   color: white;
+  font-size: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
-.App-title {
-  font-size: 1.5em;
+
+/* SingleUser.js */
+
+.names {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  list-style-type: none;
+
 }
 
-.App-intro {
-  font-size: large;
+.names li {
+  margin: 15px;
+  text-decoration: none;
+  background-color: #569eeb;
+  padding: 10px;
+  border-radius: 20px;
+  color: white;
+  -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.names li:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+
+.singleUserContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.singleUserContainer img {
+  width: 400px;
+
+}
+
+.identity {
+  top: 100px;
+  position: sticky;
+
+}
+
+/* .userInfo {
+  text-align: center;
+  margin-top: 50px;
+} */
+
+
+
+.allPosts {
+  background-color: #569eeb;
+  padding: 10px;
+  margin: 0 auto;
+  width: 800px;
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.singlePost {
+  background-color: white;
+  width: 100px;
+  margin: 15px;
+}
+
+.scroll {
+  background-color: #f4b942;
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 5px;
+  border: none;
+
+}
+
+.arrow-up {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -9px;
+  margin-left: -5px;
 }
