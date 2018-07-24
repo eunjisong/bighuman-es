@@ -1,8 +1,3 @@
-# Introduction
-
-Big Human Frontend Interview Code Test
-
-
 # Public Link
 
 https://eunjisong.github.io/bighuman-es/
