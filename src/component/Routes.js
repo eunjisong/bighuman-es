@@ -1,8 +1,9 @@
 import React from 'react';
 import {withRouter, Route, Switch} from 'react-router-dom'
 import {connect} from 'react-redux'
+import { fetchUsers } from '../store';
 
-import { AllPosts, AllUsers, SinglePost, SingleUser} from './index'
+import { AllPosts, AllUsers, SinglePost, SingleUser, Home} from './index'
 
 class Routes extends React.Component {
 
@@ -10,18 +11,35 @@ class Routes extends React.Component {
     this.props.fetchUsers()
   }
 
+  render(){
+    return(
+    <Switch>
+        <Route exact path="/" component={Home}/>
+
+        <Route exact path="/users" component={AllUsers}/>
+        <Route exact path="/users/:id" component={SingleUser}/>
+
+        <Route exact path="/posts" component={AllPosts}/>
+        <Route exact path="/posts/:id" component={SinglePost}/>
+    </Switch>
+    )
+  }
 
 
 }
 
-const mapState = state => {
 
+const mapState = state => {
   return {
     users: state.users
+  };
+};
+
+const mapDispatch = dispatch => {
+  return {
+    fetchUsers: () => dispatch(fetchUsers()),
   }
 }
 
-const mapDispatch = { fetchUsers }
 
-
-export default connect(mapState, mapDispatch)(Routes)
+export default withRouter(connect(mapState, mapDispatch)(Routes))

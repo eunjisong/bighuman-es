@@ -3,16 +3,6 @@
 import axios from 'axios';
 const server = 'https://bh-interview.now.sh';
 
-var config = { headers: {
-  'Access-Control-Allow-Methods': 'GET,POST', 'Access-Control-Allow-Origin': '*',
-  crossDomain: true,
-  'Content-Type': 'application/json' },
-}
-
-const prox = {proxy: {
-  "*":{ target : "http://myurl"}
-} }
-
 const GET_USER = 'GET_USER';
 const NEW_POST = 'NEW_POST';
 const CLEAR_POSTS = 'CLEAR_POSTS';
@@ -26,8 +16,7 @@ const clearPosts = posts => ({type: CLEAR_POSTS, posts});
 // **GET /users**
 export const fetchUsers = () =>
     dispatch =>
-      axios.get(`${server}/users`, config)
-
+      axios.get(`${server}/users`)
         .then( res => dispatch(getUser(res.data)))
         .catch( err => console.error('error fetchingUsers', err))
 

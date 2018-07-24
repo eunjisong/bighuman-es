@@ -1,31 +1,35 @@
-import React from 'react'
-import { connect } from 'react-redux';
-import { fetchUsers } from '../store';
+import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class AllUsers extends React.Component {
 
-
-  componentDidMount(){
-    this.props.fetchUsers();
-  }
-
-  render(){
-    console.log(this.props.users)
-    return(
+  render() {
+    const { data } = this.props.users;
+    return (
       <div>
-        {this.props.users && console.log(this.props.users)}
+        {data &&
+          data.map(user => (
+            <div key={user.id}>
+
+              <Link to={{ pathname: `/users/${user.id}`, state: { user: user} }}>
+
+                <h3>{user.name}</h3>
+                <img src={user.image} alt={user.name} />
+              </Link>
+
+            </div>
+          ))}
       </div>
-    )
+    );
   }
 }
 
 const mapState = state => {
-
   return {
     users: state.users
-  }
-}
+  };
+};
 
-const mapDispatch = { fetchUsers }
 
-export default connect(mapState, mapDispatch)(AllUsers);
+export default connect(mapState)(AllUsers);

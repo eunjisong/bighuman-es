@@ -1,10 +1,21 @@
-import React from 'react';
+import React from "react";
+import { connect } from "react-redux";
 
-export default class SingleUser extends React.Component {
+class SingleUser extends React.Component {
+  render() {
+    return (
+      <div>
 
-  render(){
-    return(
-      <div>single User</div>
+      </div>
     )
   }
 }
+
+const mapState = (state, ownProps) => {
+  const id = +ownProps.match.params.id;
+  return {
+    user: state.users.data && state.users.data.find(a => a.id == id)
+  };
+};
+
+export default connect(mapState)(SingleUser);
