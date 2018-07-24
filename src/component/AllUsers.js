@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { connect } from 'react-redux';
 import { fetchUsers } from '../store';
 
@@ -14,7 +14,6 @@ class AllUsers extends React.Component {
     return(
       <div>
         {this.props.users && console.log(this.props.users)}
-
       </div>
     )
   }

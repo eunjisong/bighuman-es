@@ -1,5 +1,17 @@
+// I haven't hooked up the server yet it gives me crossDomain issues.
+
 import axios from 'axios';
 const server = 'https://bh-interview.now.sh';
+
+var config = { headers: {
+  'Access-Control-Allow-Methods': 'GET,POST', 'Access-Control-Allow-Origin': '*',
+  crossDomain: true,
+  'Content-Type': 'application/json' },
+}
+
+const prox = {proxy: {
+  "*":{ target : "http://myurl"}
+} }
 
 const GET_USER = 'GET_USER';
 const NEW_POST = 'NEW_POST';
@@ -14,10 +26,8 @@ const clearPosts = posts => ({type: CLEAR_POSTS, posts});
 // **GET /users**
 export const fetchUsers = () =>
     dispatch =>
-      axios.get(`${server}/users`, {crossDomain: true, proxy: {
-        host: '192.168.1.21',
-        port: 3000
-      }})
+      axios.get(`${server}/users`, config)
+
         .then( res => dispatch(getUser(res.data)))
         .catch( err => console.error('error fetchingUsers', err))
 
