@@ -15,9 +15,9 @@
 
 .navContainer {
   display: flex;
-  height: 100px;
+  height: 70px;
   justify-content: flex-end;
-  margin: 30px 80px 0 0;
+  margin: 30px 120px 0 0;
   position:sticky;
   top:0;
   background-color: white;
@@ -110,21 +110,23 @@
 
 .singleUserContainer {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
   justify-content: center;
 }
 
-.singleUserContainer img {
-  width: 400px;
-
-}
 
 .identity {
   top: 100px;
   position: sticky;
-
+  margin: 0 50px;
 }
+
+.singleUserContainer img {
+  width: 420px;
+  margin-bottom: 30px;
+}
+
 
 /* .userInfo {
   text-align: center;
@@ -136,8 +138,8 @@
 .allPosts {
   background-color: #569eeb;
   padding: 10px;
-  margin: 0 auto;
-  width: 800px;
+  width: 500px;
+  height: 500px;
   overflow: auto;
   display: flex;
   flex-wrap: wrap;
@@ -147,25 +149,4 @@
   background-color: white;
   width: 100px;
   margin: 15px;
-}
-
-.scroll {
-  background-color: #f4b942;
-  width: 40px;
-  height: 40px;
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  border-radius: 5px;
-  border: none;
-
-}
-
-.arrow-up {
-  color: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -9px;
-  margin-left: -5px;
 }

@@ -3,27 +3,6 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 class SingleUser extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      intervalId: 0
-    };
-
-    this.scrollToTop = this.scrollToTop.bind(this);
-    this.scrollStep = this.scrollStep.bind(this);
-  }
-
-  scrollStep() {
-    if (window.pageYOffset === 0) {
-      clearInterval(this.state.intervalId);
-    }
-    window.scroll(0, window.pageYOffset - this.props.scrollStepInPx);
-  }
-
-  scrollToTop() {
-    let intervalId = setInterval(this.scrollStep, this.props.delayInMs);
-    this.setState({ intervalId: intervalId });
-  }
 
   render() {
     const { users, user } = this.props;
@@ -52,7 +31,7 @@ class SingleUser extends React.Component {
         {user && (
           <div className="singleUserContainer">
 
-            <div className="idendity">
+            <div className="identity">
               <img src={user.image} alt={user.name} />
               <h2>{user.name}</h2>
             </div>
@@ -72,13 +51,6 @@ class SingleUser extends React.Component {
             </div>
           </div>
         )}
-        <button
-          title="Back to top"
-          className="scroll"
-          onClick={this.scrollToTop}
-        >
-          <span className="arrow-up glyphicon glyphicon-chevron-up" />
-        </button>
       </div>
     );
   }
