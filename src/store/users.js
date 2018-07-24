@@ -33,7 +33,7 @@ export const postNewPost = (userId, post) =>
 export const emptyPosts = () =>
     dispatch =>
       axios.get(`${server}/users/posts/clear`, )
-        .then( res => dispatch(clearPosts(res.data)))
+        .then( res => dispatch(clearPosts()))
         .catch( err => console.error('error clearing all posts for all users', err))
 
 
@@ -45,7 +45,7 @@ export default ( state=[], action) => {
       case NEW_POST:
         return [...state, action.post];
       case CLEAR_POSTS:
-        return state.map( user => user.posts = []);
+        return state;
       default:
        return state;
     }

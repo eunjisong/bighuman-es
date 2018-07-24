@@ -14,8 +14,8 @@ class AllUsers extends React.Component {
 
               <Link to={{ pathname: `/users/${user.id}`, state: { user: user} }}>
 
-                <h3>{user.name}</h3>
                 <img src={user.image} alt={user.name} />
+                <h2>{user.name}</h2>
               </Link>
 
             </div>
@@ -30,6 +30,7 @@ const mapState = state => {
     users: state.users
   };
 };
+
 
 
 export default connect(mapState)(AllUsers);

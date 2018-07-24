@@ -3,7 +3,7 @@ import {withRouter, Route, Switch} from 'react-router-dom'
 import {connect} from 'react-redux'
 import { fetchUsers } from '../store';
 
-import { AllPosts, AllUsers, SinglePost, SingleUser, Home} from './index'
+import { AllPosts, AllUsers, SingleUser, Home} from './index'
 
 class Routes extends React.Component {
 
@@ -20,7 +20,7 @@ class Routes extends React.Component {
         <Route exact path="/users/:id" component={SingleUser}/>
 
         <Route exact path="/posts" component={AllPosts}/>
-        <Route exact path="/posts/:id" component={SinglePost}/>
+
     </Switch>
     )
   }
@@ -37,7 +37,7 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
   return {
-    fetchUsers: () => dispatch(fetchUsers()),
+    fetchUsers: () => dispatch(fetchUsers())
   }
 }
 
