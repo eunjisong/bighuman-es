@@ -55,15 +55,17 @@ class SingleUser extends React.Component {
 
 
         {/* Single User's option */}
-            <div className="options">
-              <button onClick={() => this.toggleOption("form")}>
+            <div className="optionsContainer">
+              <div className="options">
+              <button className="btn" onClick={() => this.toggleOption("form")}>
                 New Post
               </button>
-              <button onClick={() => this.toggleOption("list")}>{`${
+              <button className="btn" onClick={() => this.toggleOption("list")}>{`${
                 user.name.split(" ")[0]
               }'s Posts`}</button>
+              </div>
               {this.state.option == "form" ? (
-                <PostForm user={user} />
+                <PostForm user={user} option={this.state.option}/>
               ) : (
                 <UserPosts user={user} />
               )}
