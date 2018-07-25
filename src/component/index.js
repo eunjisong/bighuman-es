@@ -7,3 +7,5 @@ export {default as AllUsers} from './AllUsers'
 
 export {default as AllPosts} from './AllPosts'
 
+export {default as PostForm} from './PostForm'
+export {default as UserPosts} from './UserPosts'
