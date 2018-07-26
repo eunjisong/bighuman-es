@@ -1,47 +1,46 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { emptyPosts } from '../store'
+import { emptyPosts, fetchUsers } from "../store";
 
 class AllPosts extends React.Component {
-  constructor(){
-    super()
+  constructor() {
+    super();
 
-    this.handleClick = this.handleClick.bind(this)
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(){
-    this.props.emptyPosts();
-    window.location.reload();
-
+  handleClick(event) {
+    this.props.emptyPosts()
+      .then( () => this.props.fetchUsers())
   }
 
   render() {
     return (
       <div>
-        <h1>All Posts</h1>
-        <button onClick={this.handleClick} type="submit">Clear All Posts</button>
 
-        {
+          <div>
+            <button onClick={this.handleClick} type="submit">
+              Delete All Posts!
+            </button>
 
-          this.props.users &&
-          this.props.users.map( a => {
-            return a.posts.map( aPost => {
-              return (
-
-              <div >
-                <p>{aPost.content}</p>
-                <p>{aPost.poster}</p>
-                <br/>
-              </div>
-
-              )
-            })
-          }
-
-          )
-        }
-
+            <div className="allPosts">
+              {this.props.users &&
+                this.props.users.map(a => {
+                  let firstName = a.name.split(" ")[0];
+                  return a.posts.map(aPost => {
+                    return (
+                      <div className="aPost">
+                        <p>{`Hey ${firstName},`}</p>
+                        <p>{aPost.content}</p>
+                        <p>{`- ${aPost.poster}`}</p>
+                        <br />
+                      </div>
+                    );
+                  });
+                })}
+            </div>
+          </div>
 
       </div>
     );
@@ -56,9 +55,12 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
   return {
-    emptyPosts: () => dispatch(emptyPosts())
-  }
-}
+    emptyPosts: () => dispatch(emptyPosts()),
+    fetchUsers: () => dispatch(fetchUsers())
+  };
+};
 
-
-export default connect(mapState, mapDispatch)(AllPosts);
+export default connect(
+  mapState,
+  mapDispatch
+)(AllPosts);
