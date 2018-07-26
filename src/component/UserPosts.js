@@ -6,13 +6,17 @@ class UserPosts extends React.Component {
   render(){
     const { user } = this.props
     const heightChecker = user.posts.length.toString();
+
     return(
+
        <div className="userPosts">
-              {user.posts &&
+
+              {
+               user.posts.length > 0 ?
                 user.posts.reverse() &&
-                user.posts.map(aPost => {
+                user.posts.map((aPost, i) => {
                   return (
-                    <div style={{ height: heightChecker === '1' && '120px'}}className="singlePost">
+                    <div key={user.id + i} style={{ height: heightChecker === '1' && '120px'}}className="singlePost">
 
                       <div style={{marginTop: heightChecker === '2' && '60px'}} className="postsaying postContent">
 
@@ -34,7 +38,9 @@ class UserPosts extends React.Component {
                       </div>
                     </div>
                   );
-                })}
+                })
+                : <div className="noPost"><h2>No posts for {user.name.split(' ')[0]}</h2></div>
+              }
             </div>
 
     )

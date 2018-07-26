@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { emptyPosts, fetchUsers } from "../store";
+import { emptyPosts } from "../store";
 
 class AllPosts extends React.Component {
   constructor() {
@@ -12,7 +12,6 @@ class AllPosts extends React.Component {
 
   handleClick(event) {
     this.props.emptyPosts()
-      .then( () => this.props.fetchUsers())
   }
 
   render() {
@@ -20,18 +19,18 @@ class AllPosts extends React.Component {
       <div>
 
           <div>
-            <button onClick={this.handleClick} type="submit">
+            <button className="delete" onClick={this.handleClick} type="submit">
               Delete All Posts!
             </button>
 
             <div className="allPosts">
-              {this.props.users &&
-                this.props.users.map(a => {
-                  let firstName = a.name.split(" ")[0];
-                  return a.posts.map(aPost => {
+              {
+                this.props.users &&
+                this.props.users.map(user => {
+                  let firstName = user.name.split(" ")[0];
+                  return user.posts.length > 0 && user.posts.map((aPost, i) => {
                     return (
-                      <div className="aPost">
-
+                      <div key={user.id + i} className="aPost">
                         <p>{`Hey ${firstName},`}</p>
                         <p>{aPost.content}</p>
                         <p>{`- ${aPost.poster}`}</p>
@@ -56,8 +55,7 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
   return {
-    emptyPosts: () => dispatch(emptyPosts()),
-    fetchUsers: () => dispatch(fetchUsers())
+    emptyPosts: () => dispatch(emptyPosts())
   };
 };
 
