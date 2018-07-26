@@ -10,9 +10,9 @@ class UserPosts extends React.Component {
        <div className="userPosts">
               {user.posts &&
                 user.posts.reverse() &&
-                user.posts.map(aPost => {
+                user.posts.map((aPost, i) => {
                   return (
-                    <div style={{ height: heightChecker === '1' && '120px'}}className="singlePost">
+                    <div key={user.id + i} style={{ height: heightChecker === '1' && '120px'}}className="singlePost">
 
                       <div style={{marginTop: heightChecker === '2' && '60px'}} className="postsaying postContent">
 

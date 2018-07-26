@@ -28,10 +28,10 @@ class AllPosts extends React.Component {
                 this.props.users &&
                 this.props.users.map(user => {
                   let firstName = user.name.split(" ")[0];
-                  return user.posts.length > 0 && user.posts.map(aPost => {
+                  return user.posts.length > 0 && user.posts.map((aPost, i) => {
                     return (
-                      <div className="aPost">
-
+                      <div key={user.id + i} className="aPost">
+                        {console.log(user.id + i)}
                         <p>{`Hey ${firstName},`}</p>
                         <p>{aPost.content}</p>
                         <p>{`- ${aPost.poster}`}</p>
