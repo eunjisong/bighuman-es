@@ -3,7 +3,7 @@ import {withRouter, Route, Switch} from 'react-router-dom'
 import {connect} from 'react-redux'
 import { fetchUsers } from '../store';
 
-import { AllPosts, AllUsers, SingleUser, Home, PostForm} from './index'
+import { AllPosts, AllUsers, SingleUser, Home} from './index'
 
 class Routes extends React.Component {
 
@@ -14,7 +14,7 @@ class Routes extends React.Component {
   render(){
     return(
     <Switch>
-        <Route exact path="/" component={PostForm}/>
+        <Route exact path="/" component={Home}/>
 
         <Route exact path="/users" component={AllUsers}/>
         <Route exact path="/users/:id" component={SingleUser}/>

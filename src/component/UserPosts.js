@@ -5,24 +5,30 @@ class UserPosts extends React.Component {
 
   render(){
     const { user } = this.props
+    const heightChecker = user.posts.length.toString();
     return(
-       <div className="allPosts">
+       <div className="userPosts">
               {user.posts &&
                 user.posts.map(aPost => {
                   return (
-                    <div className="singlePost">
-                      <div>
-                        <h5>content:</h5>
+                    <div style={{ height: heightChecker === '1' && '120px'}}className="singlePost">
+
+                      <div style={{marginTop: heightChecker === '2' && '60px'}} className="postsaying postContent">
+
                         <p>
                           {
-                            aPost.content
+                            `"${aPost.content
                               ? aPost.content
-                              : "The content is empty"
+                              : "The content is empty"}"`
+
+
                           }
                         </p>
+
                       </div>
-                      <div>
-                        <h5>poster:</h5>
+
+                      <div className="poster postContent">
+                        <h6>by</h6>
                         <p>{aPost.poster}</p>
                       </div>
                     </div>

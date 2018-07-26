@@ -17,7 +17,7 @@ export default class NavBar extends React.Component {
         </li>
         <li className="nav-item">
           <Link to="/posts" className="nav-link">
-            Talks
+            Posts
           </Link>
         </li>
       </ul>

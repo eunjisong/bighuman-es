@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { PostForm, UserPosts } from "./index";
+import { PostForm, UserPosts, UserList } from "./index";
 
 class SingleUser extends React.Component {
   constructor() {
@@ -18,63 +17,72 @@ class SingleUser extends React.Component {
   }
 
   render() {
-    const { users, user } = this.props;
-    const color = this.props.match.params.id;
+    const { users, id } = this.props;
+    const { option } = this.state;
+    let user;
+    for(var a in users){
+      if(users[a].id == id) user = users[a]
+    }
 
+    const firstName = user && user.name.split(" ")[0];
     return (
       <div>
-
         <div>
-        {/* List of all Users */}
-        {users && (
-          <ul className="names">
-            {users.map(a => (
-              <Link style={{ textDecoration: "none" }} to={`/users/${a.id}`}>
-                <li
-                  style={{
-                    backgroundColor: color === a.id ? "#f4b942" : "#569eeb"
-                  }}
-                >
-                  {a.name}
-                </li>
-              </Link>
-            ))}
-          </ul>
-        )}
-        </div>
+          {users &&
+            user && (
+              <div>
+                <UserList id={user.id} users={users} />
 
+                <div>
+                  <div className="singleUserContainer">
+                    {/* User's image and name */}
+                    <div className="identity" style={{backgroundColor:
+                              option === "form" ? "#569eeb" : "#f4b942"}}>
+                      <img src={user.image} alt={user.name} />
+                      <h2>{user.name}</h2>
+                    </div>
 
-        <div>
-        {/* Single User Rendering */}
-        {user && (
-          <div className="singleUserContainer">
-            <div className="identity">
-              {/* <img src={user.image} alt={user.name} /> */}
-              <h2>{user.name}</h2>
-            </div>
+                    {/* User's two option */}
+                    <div className="optionsContainer">
+                      <div className="options">
+                        <button
+                          style={{
+                            borderRadius: "0",
+                            backgroundColor:
+                              option === "form" ? "#f4b942" : "white"
+                          }}
+                          className="btn"
+                          onClick={() => this.toggleOption("form")}
+                        >
+                          New Post
+                        </button>
 
+                        <button
+                          style={{
+                            borderRadius: "0",
+                            backgroundColor:
+                              option === "list" ? "#569eeb" : "white"
+                          }}
+                          className="btn"
+                          onClick={() => this.toggleOption("list")}
+                        >
+                          {`${firstName}'s Posts`}
+                        </button>
+                      </div>
 
-        {/* Single User's option */}
-            <div className="optionsContainer">
-              <div className="options">
-              <button className="btn" onClick={() => this.toggleOption("form")}>
-                New Post
-              </button>
-              <button className="btn" onClick={() => this.toggleOption("list")}>{`${
-                user.name.split(" ")[0]
-              }'s Posts`}</button>
+                      {this.state.option == "form" ? (
+                        <PostForm users={users} user={user} option={this.state.option} />
+                      ) : (
+                        <UserPosts user={user} />
+                      )}
+                    </div>
+                  </div>
+                </div>
               </div>
-              {this.state.option == "form" ? (
-                <PostForm user={user} option={this.state.option}/>
-              ) : (
-                <UserPosts user={user} />
-              )}
-            </div>
-          </div>
-        )}
+            )}
         </div>
 
-
+        {/* Single User Rendering */}
       </div>
     );
   }
@@ -84,7 +92,7 @@ const mapState = (state, ownProps) => {
   const id = +ownProps.match.params.id;
   return {
     users: state.users.data,
-    user: state.users.data && state.users.data.find(a => a.id == id)
+    id: id
   };
 };
 

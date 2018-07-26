@@ -2,11 +2,18 @@
 
 .App {
   text-align: center;
+  min-width: 500px;
+  font-family: "Courier New", Times, serif;
+
 }
 
 .content {
   margin: 30px;
   text-decoration: none;
+}
+
+p {
+  word-break: break-all
 }
 
 
@@ -19,6 +26,7 @@
   justify-content: flex-end;
   margin: 20px 120px 20px 0;
   background-color: white;
+  color: #569eeb;
 }
 
 .navContainer li {
@@ -92,7 +100,6 @@
   flex-wrap:wrap;
   justify-content: center;
   list-style-type: none;
-
 }
 
 .names li {
@@ -120,23 +127,24 @@
   margin-left: 30px;
 }
 
-
 .identity {
   top: 100px;
-  position: sticky;
-  margin: 25px;
+  margin: 25px 0;
+  padding: 30px;
 }
 
 .singleUserContainer img {
-  width: 450px;
+  width: 400px;
   margin-bottom: 20px;
+  border-radius: 50%;
+
+
 }
 
 
 .optionsContainer {
   width: 500px;
   height: 500px;
-  border: 1px solid black;
   padding: 0;
   margin: 0;
 
@@ -144,6 +152,7 @@
 
 .optionsContainer .btn {
   width: 250px;
+  margin-top: 25px;
 }
 
 .options {
@@ -151,34 +160,105 @@
   flex-direction: row;
 }
 
-.allPosts {
-  background-color: white;
-  margin-top:25px;
-  margin-right: 0;
-  padding: 10px;
+.userPosts {
+  background-color: #569eeb;
+  padding: 20px;
   width: 500px;
-  height: 500px;
+  height: 488px;
   overflow: auto;
   display: flex;
   flex-wrap: wrap;
-  color: white;
+  color: black;
 }
 
 .singlePost {
-  background-color: #569eeb;
-  width: 500px;
-  margin: 15px 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-}
 
-.optionsContainer form {
-  background-color: #f4b942;
+  background-color: white;
+  width: 500px;
+  margin: 5px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  overflow: auto;
+}
+
+
+.singlePost .postContent {
+  display: flex;
+
+}
+
+.postsaying {
+  margin-top: 35px;
+  font-style: italic;
+  padding: 0 50px;
+}
+.poster h6 {
+  padding-right: 10px;
+
+}
+
+form {
+  background-color: #f4b942;
+  height: 488px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 form .formItem {
   margin: 15px;
+}
+
+form button {
+  margin-left: 130px;
+}
+
+
+/* AllPosts  */
+
+.allPosts {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 30px;
+}
+
+.allPosts .aPost{
+  margin: 20px;
+  text-decoration:none;
+  color:#000;
+  background:#ffc;
+  display:block;
+  height:13em;
+  width:13em;
+  padding:1em;
+  overflow:auto;
+  -moz-box-shadow:5px 5px 7px rgba(33,33,33,1);
+  -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  /* Opera */
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+}
+
+.allPosts .aPost:nth-child(even) {
+  -o-transform:rotate(4deg);
+  -webkit-transform:rotate(4deg);
+  -moz-transform:rotate(4deg);
+  position:relative;
+  top:5px;
+}
+.allPosts .aPost:nth-child(3n) {
+  -o-transform:rotate(-3deg);
+  -webkit-transform:rotate(-3deg);
+  -moz-transform:rotate(-3deg);
+  position:relative;
+  top:-5px;
+}
+.allPosts .aPost:nth-child(5n){
+  -o-transform:rotate(5deg);
+  -webkit-transform:rotate(5deg);
+  -moz-transform:rotate(5deg);
+  position:relative;
+  top:-10px;
 }

@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { postNewPost } from "../store";
+
+
 class PostFrom extends React.Component {
   constructor() {
     super();
@@ -19,14 +21,16 @@ class PostFrom extends React.Component {
 
   handleSubmit(event) {
     const id = this.props.user.id;
-    this.props.postNewPost(id, this.state);
-
+    let newMessage = this.state;
+    this.props.user.posts.push(newMessage)
+    this.setState({[event.target.name]: ''})
+    this.props.postNewPost(id, this.props.users);
+    event.preventDefault();
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-
+      <form className="postForm" onSubmit={this.handleSubmit}>
         <div className="formItem form-group">
           <textarea
             className="form-control"
@@ -38,8 +42,9 @@ class PostFrom extends React.Component {
         </div>
 
         <div className="formItem form-group">
+
           <input
-          className="form-control"
+            className="form-control"
             placeholder="name"
             type="text"
             onChange={this.handleChange}
@@ -47,7 +52,8 @@ class PostFrom extends React.Component {
           />
         </div>
 
-        <input type="submit" value="Submit" className="btn submitButton" />
+        <button type="submit" className="btn submitButton">Submit</button>
+
       </form>
     );
   }
