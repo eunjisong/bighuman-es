@@ -5,7 +5,7 @@ export default class Home extends React.Component {
   render(){
     return(
       <div className="home">
-        <Link to="/bighuman-es/"><img src="http://www.bighuman.com/images/bh-logo-black.svg" alt="logo" /></Link>
+        <Link to="/bighuman-es/users"><img src="http://www.bighuman.com/images/bh-logo-black.svg" alt="logo" /></Link>
 
       </div>
     )
