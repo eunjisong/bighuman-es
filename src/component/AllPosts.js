@@ -19,7 +19,7 @@ class AllPosts extends React.Component {
       <div>
 
           <div>
-            <button onClick={this.handleClick} type="submit">
+            <button className="delete" onClick={this.handleClick} type="submit">
               Delete All Posts!
             </button>
 
@@ -31,7 +31,6 @@ class AllPosts extends React.Component {
                   return user.posts.length > 0 && user.posts.map((aPost, i) => {
                     return (
                       <div key={user.id + i} className="aPost">
-                        {console.log(user.id + i)}
                         <p>{`Hey ${firstName},`}</p>
                         <p>{aPost.content}</p>
                         <p>{`- ${aPost.poster}`}</p>

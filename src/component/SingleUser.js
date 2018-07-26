@@ -4,58 +4,47 @@ import { PostForm, UserPosts, UserList } from "./index";
 
 
 class SingleUser extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      option: "form",
-      new: false
-    };
-
-    this.toggleOption = this.toggleOption.bind(this);
-    this.handleNewPost = this.handleNewPost.bind(this);
-  }
-
-  toggleOption(option) {
-    this.setState({ option });
-  }
-
-  handleNewPost(news){
-    this.setState({ new: news})
-  }
 
   render() {
     const { users, id } = this.props;
-    const { option } = this.state;
     let user;
 
     for(var single in users){
       if(+users[single].id === +id) user = users[single]
     }
-    this.state.new && console.log(this.state.new)
-    const firstName = user && user.name.split(" ")[0];
+
     return (
       <div>
         <div>
           {users &&
             user && (
               <div>
-                <UserList id={user.id} users={users} />
 
+                {/* level 1 */}
+                <div>
+                <UserList id={user.id} users={users} />
+                </div>
+
+                {/* level 1 */}
                 <div>
 
+
+                  {/* level 2 */}
                   <div className="singleUserContainer">
 
 
-                    <div className="identity" style={{backgroundColor:
-                              option === "form" ? "#8fd3f4" : "#f4b942"}}>
-                      <img src={user.image} alt={user.name} />
-                      <h2>{user.name}</h2>
-                    </div>
+                        {/* level 3 */}
+                        <div className="identity">
+                          <img src={user.image} alt={user.name} />
+                          <h2>{user.name}</h2>
+                        </div>
 
-                      <div className="identitySide">
-                        <PostForm users={users} user={user} />
-                        <UserPosts user={user} new={this.state.new} />
-                      </div>
+
+                        {/* level 3 */}
+                        <div className="identitySide">
+                          <PostForm users={users} user={user} />
+                          <UserPosts user={user} />
+                        </div>
 
 
                     </div>
