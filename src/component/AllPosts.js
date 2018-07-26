@@ -40,6 +40,7 @@ class AllPosts extends React.Component {
                   });
                 })}
             </div>
+
           </div>
 
       </div>
