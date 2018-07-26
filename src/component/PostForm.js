@@ -19,12 +19,14 @@ class PostFrom extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
+
   handleSubmit(event) {
     event.preventDefault();
     const id = this.props.user.id;
     let newMessage = this.state;
     this.props.postNewPost(id, newMessage)
-    this.setState({content:"", poster:""})
+    .then( () => this.setState({content:"", poster:""}))
+
   }
 
   render() {

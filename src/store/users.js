@@ -10,7 +10,7 @@ const CLEAR_POSTS = 'CLEAR_POSTS';
 
 const getUser = users => ({type: GET_USER, users});
 const newPost = user => ({type: NEW_POST, user});
-const clearPosts = clear => ({type: CLEAR_POSTS, clear});
+const clearPosts = empty => ({type: CLEAR_POSTS, empty});
 
 
 // **GET /users**
@@ -46,12 +46,12 @@ export const emptyPosts = () =>
             case GET_USER:
               return action.users;
             case NEW_POST:
-              return { ...state, data: [...state.data, action.user.data]}
+              let idx = +action.user.data.id - 1
+              state.data.splice(idx, 1, action.user.data)
+              return { ...state, data: state.data}
             case CLEAR_POSTS:
-            return state.data = state.data.map( user => {
-                user.posts = [];
-                return user;
-              })
+            const usersNoPosts = state.data.map( a => {a.posts = []; return a;})
+            return { ...state, data: usersNoPosts}
             default:
              return state;
           }

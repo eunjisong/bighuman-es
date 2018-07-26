@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { emptyPosts, fetchUsers } from "../store";
+import { emptyPosts } from "../store";
 
 class AllPosts extends React.Component {
   constructor() {
@@ -12,7 +12,6 @@ class AllPosts extends React.Component {
 
   handleClick(event) {
     this.props.emptyPosts()
-      .then( () => this.props.fetchUsers())
   }
 
   render() {
@@ -25,10 +24,11 @@ class AllPosts extends React.Component {
             </button>
 
             <div className="allPosts">
-              {this.props.users &&
-                this.props.users.map(a => {
-                  let firstName = a.name.split(" ")[0];
-                  return a.posts.map(aPost => {
+              {
+                this.props.users &&
+                this.props.users.map(user => {
+                  let firstName = user.name.split(" ")[0];
+                  return user.posts.length > 0 && user.posts.map(aPost => {
                     return (
                       <div className="aPost">
 
@@ -56,8 +56,7 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
   return {
-    emptyPosts: () => dispatch(emptyPosts()),
-    fetchUsers: () => dispatch(fetchUsers())
+    emptyPosts: () => dispatch(emptyPosts())
   };
 };
 
