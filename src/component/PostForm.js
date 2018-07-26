@@ -28,8 +28,7 @@ class PostFrom extends React.Component {
     this.props.user.posts.push(newMessage)
     this.props.postNewPost(id, this.props.users)
       .then( () => {
-        this.setState({ loading: false })
-        console.log(this.state)
+        this.props.handle(true)
       })
   }
 

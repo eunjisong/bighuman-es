@@ -8,13 +8,19 @@ class SingleUser extends React.Component {
     super();
     this.state = {
       option: "form",
+      new: false
     };
 
     this.toggleOption = this.toggleOption.bind(this);
+    this.handleNewPost = this.handleNewPost.bind(this);
   }
 
   toggleOption(option) {
     this.setState({ option });
+  }
+
+  handleNewPost(news){
+    this.setState({ new: news})
   }
 
   render() {
@@ -25,7 +31,7 @@ class SingleUser extends React.Component {
     for(var single in users){
       if(users[single].id == id) user = users[single]
     }
-
+    this.state.new && console.log(this.state.new)
     const firstName = user && user.name.split(" ")[0];
     return (
       <div>
@@ -70,12 +76,16 @@ class SingleUser extends React.Component {
                         >
                           {`${firstName}'s Posts`}
                         </button>
+                        {/* {this.state.new &&
+                        <div className="new">
+                          new!
+                        </div>} */}
                       </div>
 
                       {this.state.option == "form" ? (
-                        <PostForm users={users} user={user} option={this.state.option} />
+                        <PostForm handle={this.handleNewPost} users={users} user={user} option={this.state.option} />
                       ) : (
-                        <UserPosts user={user} />
+                        <UserPosts user={user} new={this.state.new} />
                       )}
                     </div>
                   </div>

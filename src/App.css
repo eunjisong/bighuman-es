@@ -269,3 +269,13 @@ form button {
   position:relative;
   top:-10px;
 }
+
+/* +1 sign */
+.new {
+  padding: 9px 3px 10px 7px;
+  font-size: 15px;
+  background-color: gray;
+  color: white;
+  height: 40px;
+  border-radius: 50%;
+}
