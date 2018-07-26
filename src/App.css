@@ -4,7 +4,7 @@
   text-align: center;
   min-width: 500px;
   font-family: "Courier New", Times, serif;
-
+  color: gray;
 }
 
 .content {
@@ -16,6 +16,9 @@ p {
   word-break: break-all
 }
 
+button {
+  color: gray;
+}
 
 
 /* NavBar.js */
@@ -131,6 +134,7 @@ p {
   top: 100px;
   margin: 25px 0;
   padding: 30px;
+  color: gray;
 }
 
 .singleUserContainer img {
@@ -156,6 +160,7 @@ p {
 .optionsContainer .btn {
   width: 250px;
   margin-top: 25px;
+  color: gray;
 }
 
 .options {
