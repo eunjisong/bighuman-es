@@ -54,7 +54,7 @@ class SingleUser extends React.Component {
             )}
         </div>
 
-        {/* Single User Rendering */}
+
       </div>
     );
   }
