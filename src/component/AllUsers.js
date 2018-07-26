@@ -16,7 +16,7 @@ class AllUsers extends React.Component {
               >
                 <img src={user.image} alt={user.name} />
                 {/* <h2>{user.name}</h2> */}
-                <div className="overlay" style={{backgroundColor: Math.round(Math.random()) === 0 ? '#f4b942' : '#569eeb'}}>
+                <div className="overlay" style={{backgroundColor: Math.round(Math.random()) === 0 ? '#f4b942' : '#8fd3f4'}}>
                   <div className="indivisualName">{user.name}</div>
                 </div>
               </Link>

@@ -5,21 +5,21 @@ export default class NavBar extends React.Component {
   render() {
     return (
       <ul className="nav navContainer">
-        <li className="nav-item">
           <Link to="/" className="nav-link">
+        <li className="nav-item">
             Home
-          </Link>
         </li>
-        <li className="nav-item">
+          </Link>
           <Link to="/users" className="nav-link">
-            People
-          </Link>
-        </li>
         <li className="nav-item">
-          <Link to="/posts" className="nav-link">
-            Posts
-          </Link>
+            People
         </li>
+          </Link>
+          <Link to="/posts" className="nav-link">
+        <li className="nav-item">
+            Posts
+        </li>
+          </Link>
       </ul>
     );
   }

@@ -39,7 +39,7 @@ class SingleUser extends React.Component {
                   <div className="singleUserContainer">
                     {/* User's image and name */}
                     <div className="identity" style={{backgroundColor:
-                              option === "form" ? "#569eeb" : "#f4b942"}}>
+                              option === "form" ? "#8fd3f4" : "#f4b942"}}>
                       <img src={user.image} alt={user.name} />
                       <h2>{user.name}</h2>
                     </div>
@@ -63,7 +63,7 @@ class SingleUser extends React.Component {
                           style={{
                             borderRadius: "0",
                             backgroundColor:
-                              option === "list" ? "#569eeb" : "white"
+                              option === "list" ? "#8fd3f4" : "white"
                           }}
                           className="btn"
                           onClick={() => this.toggleOption("list")}

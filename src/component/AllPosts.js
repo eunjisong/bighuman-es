@@ -31,6 +31,7 @@ class AllPosts extends React.Component {
                   return a.posts.map(aPost => {
                     return (
                       <div className="aPost">
+
                         <p>{`Hey ${firstName},`}</p>
                         <p>{aPost.content}</p>
                         <p>{`- ${aPost.poster}`}</p>

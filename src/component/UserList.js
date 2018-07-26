@@ -14,7 +14,7 @@ export default class UserList extends React.Component {
                 <Link key={a.id} style={{ textDecoration: "none" }} to={`/users/${a.id}`}>
                   <li
                     style={{
-                      backgroundColor: id === a.id ? "#f4b942" : "#569eeb"
+                      backgroundColor: id === a.id ? "#f4b942" : "#8fd3f4"
                     }}
                   >
                     {a.name}
