@@ -10,7 +10,7 @@ const CLEAR_POSTS = 'CLEAR_POSTS';
 
 const getUser = users => ({type: GET_USER, users});
 const newPost = user => ({type: NEW_POST, user});
-const clearPosts = posts => ({type: CLEAR_POSTS, posts});
+const clearPosts = clear => ({type: CLEAR_POSTS, clear});
 
 
 // **GET /users**
@@ -23,9 +23,9 @@ export const fetchUsers = () =>
 
 
 // **POST /users/:userId/posts**
-export const postNewPost = (userId, post) =>
+export const postNewPost = (userId, user) =>
     dispatch =>
-      axios.post(`${server}/users/${userId}/posts`, post)
+      axios.post(`${server}/users/${userId}/posts`, user)
         .then( res => res.data )
         .then( data => dispatch(newPost(data)))
         .catch( err => console.error('error posting a new post', err))
@@ -34,7 +34,7 @@ export const postNewPost = (userId, post) =>
 // **GET /users/posts/clear**
 export const emptyPosts = () =>
     dispatch =>
-      axios.get(`${server}/users/posts/clear`, )
+      axios.get(`${server}/users/posts/clear`)
         .then( res => res.data )
         .then( data => dispatch(clearPosts(data)))
         .catch( err => console.error('error clearing all posts for all users', err))
@@ -46,14 +46,9 @@ export default ( state=[], action) => {
       case GET_USER:
         return action.users;
       case NEW_POST:
-        return state.data = state.data.map( user => {
-          if(user.id == action.post.data.id) {
-            user.posts = action.post.data.posts
-            return user;
-          } else return user;
-        })
+        return state;
       case CLEAR_POSTS:
-        return state.data = state.data.map( user => {
+      return state.data = state.data.map( user => {
           user.posts = [];
           return user;
         })

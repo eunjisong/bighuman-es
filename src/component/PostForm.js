@@ -8,7 +8,8 @@ class PostFrom extends React.Component {
     super();
     this.state = {
       content: "",
-      poster: ""
+      poster: "",
+      loading: false
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -20,16 +21,22 @@ class PostFrom extends React.Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault();
     const id = this.props.user.id;
     let newMessage = this.state;
+    this.setState({content:"", poster:"", loading: true})
     this.props.user.posts.push(newMessage)
-    this.setState({[event.target.name]: ''})
-    this.props.postNewPost(id, this.props.users);
-    event.preventDefault();
+    this.props.postNewPost(id, this.props.users)
+      .then( () => {
+        this.setState({ loading: false })
+        console.log(this.state)
+      })
   }
 
   render() {
     return (
+
+
       <form className="postForm" onSubmit={this.handleSubmit}>
         <div className="formItem form-group">
           <textarea
@@ -38,6 +45,7 @@ class PostFrom extends React.Component {
             type="textarea"
             onChange={this.handleChange}
             name="content"
+            value={this.state.content}
           />
         </div>
 
@@ -49,6 +57,7 @@ class PostFrom extends React.Component {
             type="text"
             onChange={this.handleChange}
             name="poster"
+            value={this.state.poster}
           />
         </div>
 

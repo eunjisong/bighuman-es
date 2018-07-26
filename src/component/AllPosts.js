@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { emptyPosts } from "../store";
+import { emptyPosts, fetchUsers } from "../store";
 
 class AllPosts extends React.Component {
   constructor() {
@@ -10,9 +10,9 @@ class AllPosts extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
-    this.props.emptyPosts();
-    window.location.reload()
+  handleClick(event) {
+    this.props.emptyPosts()
+      .then( () => this.props.fetchUsers())
   }
 
   render() {
@@ -55,7 +55,8 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
   return {
-    emptyPosts: () => dispatch(emptyPosts())
+    emptyPosts: () => dispatch(emptyPosts()),
+    fetchUsers: () => dispatch(fetchUsers())
   };
 };
 

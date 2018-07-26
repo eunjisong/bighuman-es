@@ -2,11 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import { PostForm, UserPosts, UserList } from "./index";
 
+
 class SingleUser extends React.Component {
   constructor() {
     super();
     this.state = {
-      option: "form"
+      option: "form",
     };
 
     this.toggleOption = this.toggleOption.bind(this);
@@ -20,8 +21,9 @@ class SingleUser extends React.Component {
     const { users, id } = this.props;
     const { option } = this.state;
     let user;
-    for(var a in users){
-      if(users[a].id == id) user = users[a]
+
+    for(var single in users){
+      if(users[single].id == id) user = users[single]
     }
 
     const firstName = user && user.name.split(" ")[0];
