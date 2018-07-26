@@ -8,8 +8,7 @@ class PostFrom extends React.Component {
     super();
     this.state = {
       content: "",
-      poster: "",
-      loading: false
+      poster: ""
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -24,12 +23,8 @@ class PostFrom extends React.Component {
     event.preventDefault();
     const id = this.props.user.id;
     let newMessage = this.state;
-    this.setState({content:"", poster:"", loading: true})
-    this.props.user.posts.push(newMessage)
-    this.props.postNewPost(id, this.props.users)
-      .then( () => {
-        this.props.handle(true)
-      })
+    this.props.postNewPost(id, newMessage)
+    this.setState({content:"", poster:""})
   }
 
   render() {

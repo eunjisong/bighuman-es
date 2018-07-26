@@ -29,7 +29,7 @@ class SingleUser extends React.Component {
     let user;
 
     for(var single in users){
-      if(users[single].id == id) user = users[single]
+      if(+users[single].id === +id) user = users[single]
     }
     this.state.new && console.log(this.state.new)
     const firstName = user && user.name.split(" ")[0];
@@ -82,7 +82,7 @@ class SingleUser extends React.Component {
                         </div>} */}
                       </div>
 
-                      {this.state.option == "form" ? (
+                      {this.state.option === "form" ? (
                         <PostForm handle={this.handleNewPost} users={users} user={user} option={this.state.option} />
                       ) : (
                         <UserPosts user={user} new={this.state.new} />

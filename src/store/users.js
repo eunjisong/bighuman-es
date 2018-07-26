@@ -41,18 +41,18 @@ export const emptyPosts = () =>
 
 
 
-export default ( state=[], action) => {
-    switch(action.type) {
-      case GET_USER:
-        return action.users;
-      case NEW_POST:
-        return state;
-      case CLEAR_POSTS:
-      return state.data = state.data.map( user => {
-          user.posts = [];
-          return user;
-        })
-      default:
-       return state;
-    }
-}
+        export default ( state=[], action) => {
+          switch(action.type) {
+            case GET_USER:
+              return action.users;
+            case NEW_POST:
+              return { ...state, data: [...state.data, action.user.data]}
+            case CLEAR_POSTS:
+            return state.data = state.data.map( user => {
+                user.posts = [];
+                return user;
+              })
+            default:
+             return state;
+          }
+      }

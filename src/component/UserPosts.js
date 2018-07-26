@@ -9,6 +9,7 @@ class UserPosts extends React.Component {
     return(
        <div className="userPosts">
               {user.posts &&
+                user.posts.reverse() &&
                 user.posts.map(aPost => {
                   return (
                     <div style={{ height: heightChecker === '1' && '120px'}}className="singlePost">
