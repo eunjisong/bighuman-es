@@ -11,7 +11,7 @@ export default class UserList extends React.Component {
           {users && (
             <ul className="names">
               {users.map(a => (
-                <Link key={a.id} style={{ textDecoration: "none" }} to={`/users/${a.id}`}>
+                <Link key={a.id} style={{ textDecoration: "none" }} to={`/bighuman-es/users/${a.id}`}>
                   <li
                     style={{
                       backgroundColor: id === a.id ? " #6B848F": "#C2CCD1"

@@ -12,7 +12,7 @@ class AllUsers extends React.Component {
             <div className="indivisual" key={user.id}>
               <Link
                 style={{ textDecoration: "none" }}
-                to={{ pathname: `/users/${user.id}`, state: { user: user } }}
+                to={{ pathname: `/bighuman-es/users/${user.id}`, state: { user: user } }}
               >
                 <img src={user.image} alt={user.name} />
                 {/* <h2>{user.name}</h2> */}
