@@ -17,7 +17,7 @@ button {
   text-decoration: none;
   display: flex;
   justify-content: center;
-  margin: 0 5%;
+  margin: 0 50px 30px 50px;
 
 }
 
@@ -269,19 +269,19 @@ p {
   font-size: 22px;
 }
 
-
-.singlePost .postContent {
+.singlePost {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.who {
+  display: flex;
+  flex-direction: row;
 }
 
 .postsaying {
   font-style: italic;
-  padding: 0 50px;
-}
-.poster h6 {
-  padding-right: 10px;
-
 }
 
 

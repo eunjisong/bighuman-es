@@ -22,9 +22,9 @@ class UserPosts extends React.Component {
 
                         <p>
                           {
-                            `"${aPost.content
+                            `" ${aPost.content
                               ? aPost.content
-                              : "The content is empty"}"`
+                              : "The content is empty"} "`
 
 
                           }
@@ -32,7 +32,7 @@ class UserPosts extends React.Component {
 
                       </div>
 
-                      <div className="postContent">
+                      <div className="who postContent">
                         <p className="poster">by</p>
                         <p className="poster">{aPost.poster}</p>
                       </div>
