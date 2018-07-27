@@ -36,7 +36,7 @@ class SingleUser extends React.Component {
                         {/* level 3 */}
                         <div className="identity">
                           <img src={user.image} alt={user.name} />
-                          <h2>{user.name}</h2>
+                          <p>{user.name}</p>
                         </div>
 
 

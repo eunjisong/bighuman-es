@@ -19,7 +19,7 @@ export const fetchUsers = () =>
       axios.get(`${server}/users`)
         .then( res => res.data)
         .then( data => dispatch(getUser(data)))
-        .catch( err => console.error('error fetchingUsers', err))
+        .catch( err => console.error('error from the fetchUsers thunk', err))
 
 
 // **POST /users/:userId/posts**
@@ -28,7 +28,7 @@ export const postNewPost = (userId, user) =>
       axios.post(`${server}/users/${userId}/posts`, user)
         .then( res => res.data )
         .then( data => dispatch(newPost(data)))
-        .catch( err => console.error('error posting a new post', err))
+        .catch( err => console.error('error from the postNewPost thunk', err))
 
 
 // **GET /users/posts/clear**
@@ -37,7 +37,7 @@ export const emptyPosts = () =>
       axios.get(`${server}/users/posts/clear`)
         .then( res => res.data )
         .then( data => dispatch(clearPosts(data)))
-        .catch( err => console.error('error clearing all posts for all users', err))
+        .catch( err => console.error('error from clearing all posts for all users', err))
 
 
 

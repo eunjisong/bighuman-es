@@ -34,7 +34,7 @@ class PostFrom extends React.Component {
 
         <div className="inputItem">
 
-          <div className="formItem form-group">
+          <div className="formItem">
             <textarea
               className="form-control"
               placeholder={`Say hi to ${firstName}`}
@@ -45,7 +45,7 @@ class PostFrom extends React.Component {
             />
           </div>
 
-          <div className="formItem form-group">
+          <div className="formItem">
             <input
               className="form-control"
               placeholder="My name is..."

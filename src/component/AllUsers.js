@@ -21,6 +21,7 @@ class AllUsers extends React.Component {
                   to={{ pathname: `/bighuman-es/users/${user.id}`, state: { user: user } }}>
 
                   <img src={user.image} alt={user.name} />
+
                   <div className="overlay" style={{backgroundColor: Math.round(Math.random()) === 0 ? "#93c6d6" : "#c9d2d6"}}>
                         <div className="indivisualName">{user.name}</div>
                   </div>

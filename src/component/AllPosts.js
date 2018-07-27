@@ -19,7 +19,7 @@ class AllPosts extends React.Component {
       <div>
 
           <div>
-            <button className="delete" onClick={this.handleClick} type="submit">
+            <button style={{fontFamily:"Courier New"}}className="delete" onClick={this.handleClick} type="submit">
               Delete All Posts!
             </button>
 

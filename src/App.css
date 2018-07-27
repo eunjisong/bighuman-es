@@ -2,16 +2,23 @@
 
 .App {
   text-align: center;
-  min-width: 500px;
-  font-family: "Courier New", Times, serif;
+  min-width: 230px;
+  font-family: "Courier New";
   color: gray;
+
 }
+
+button {
+  outline: none;
+}
+
 
 .content {
   text-decoration: none;
   display: flex;
   justify-content: center;
-  margin-bottom: 50px;
+  margin: 0 5%;
+
 }
 
 p {
@@ -21,7 +28,11 @@ p {
 /* home */
 
 .home img {
-  margin-top: 100px;
+  margin-top: 50px;
+}
+
+.home img:hover {
+  width: 300px;
 }
 
 /* NavBar.js */
@@ -29,19 +40,20 @@ p {
 .navContainer {
   display: flex;
   height: 70px;
-  margin-top: 50px;
+  margin-top: 40px;
   justify-content: center;
-  background-color: white;
 }
 
 .navContainer li {
-  font-size: 20px;
+  font-size: 16px;
+  margin: 0 20px;
+  list-style-type: none;
 }
 
-.nav-item {
+.navContainer .nav-link {
+  text-decoration: none;
   color: gray;
 }
-
 
 
 /* AllUsers.js */
@@ -50,45 +62,47 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 120px;
+  margin: 15px;
 }
 
 .indivisual {
   position: relative;
   margin: 0 50px 50px 50px;
-  background-color: #007bff0e;
   border-radius: 50%;
-  box-shadow:  1px 1px 20px 1px rgba(217,217,217,0.8);
 }
 
 .indivisual img {
-  width: 250px;
+  width: 200px;
   border-radius: 50%;
+  border: 1px solid white;
   box-shadow: 1px 1px 20px 1px rgba(217,217,217,0.8);
 }
 
 .overlay {
   position: absolute;
-  border-radius: 50%;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 100%;
-  width: 100%;
+  border-radius: 50%;
+  width:100%;
+  border: 1px solid white;
   opacity: 0;
   transition: .5s ease;
   background-color:#8fd3f4;
+  box-shadow: 1px 1px 20px 1px rgba(217,217,217,0.8);
 }
+
 
 
 .indivisual:hover .overlay {
   opacity: 1;
+
 }
 
 .indivisualName {
   color: white;
-  font-size: 25px;
+  font-size: 18px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -108,6 +122,7 @@ p {
   flex-wrap:wrap;
   justify-content: center;
   list-style-type: none;
+  margin-top: -40px;
 }
 
 .names li {
@@ -117,6 +132,7 @@ p {
   padding: 10px;
   border-radius: 20px;
   color: white;
+  font-size: 12px;
   -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
 }
@@ -133,23 +149,28 @@ p {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  background-color:#e1e6e8;
-  min-width: 500px;
-  max-width: 1300px;
+  padding: 0;
+  margin: 0;
   border-radius: 1%;
+
 }
 
 .identity {
   top: 100px;
-  margin: 25px;
+  margin: 25px 0;
   padding: 50px;
   color: gray;
+  background-color: #e1e6e8;
+  font-size: 25px;
+  width: 230px;
+  border-radius: 5px;
+
 }
 
 .identity img {
-  width: 400px;
-  margin-top: 60px;
-  margin-bottom: 50px;
+  width: 200px;
+  margin-top: 15px;
+  margin-bottom: 10px;
   border-radius: 50%;
   -moz-box-shadow:5px 5px 7px rgba(33,33,33,1);
   -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
@@ -161,51 +182,79 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  width: 450px;
+  margin: 25px 0;
 }
 
 .postForm {
-  width: 500px;
-  padding: 20px;
+  padding: 5px;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: -15px;
+
 }
 
 
+
+/* form */
+
 .formItem {
-  width: 350px;
   margin: 10px;
+}
+
+.formItem textarea {
+  height: 40px;
+  resize: none;
+
+}
+
+.formItem input {
+  height: 20px;
+
+}
+
+.formItem textarea, input {
+  outline: none;
+  border: 1px solid rgb(173, 165, 165);
+  width: 280px;
+  padding: 10px;
+  font-size: 13px;
 }
 
 .postForm .submitButton {
   margin-top: 10px;
-  width: 80px;
-  height: 110px;
+  width: 75px;
+  height: 118px;
+  font-size: 14px;
   color: white;
   background-color: #89909F;
   text-align: center;
 }
 
+/* form */
+
+
+
 .identitySide .userPosts {
-  margin-bottom: 70px;
-  padding: 20px;
-  width: 500px;
-  height: 488px;
+  margin-top: 20px;
+  height: 400px;
   overflow: auto;
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
   color: black;
-
 }
 
 .identitySide .singlePost {
-
-  background-color: white;
-  width: 500px;
+  background-color: #ffc;
+  width: 300px;
+  height: 250px;
   margin: 15px;
   display: flex;
   flex-direction: column;
+  margin-left: 40px;
   align-items: center;
   overflow: auto;
   -moz-box-shadow:5px 5px 7px rgba(33,33,33,1);
@@ -215,7 +264,9 @@ p {
 }
 
 .noPost {
-  margin: 50px;
+  margin: 0 50px;
+  color: gray;
+  font-size: 22px;
 }
 
 
@@ -225,7 +276,6 @@ p {
 }
 
 .postsaying {
-  margin-top: 35px;
   font-style: italic;
   padding: 0 50px;
 }
@@ -246,30 +296,33 @@ p {
 }
 
 .delete {
-  background-color: #badae4;
+  background-color: #D2D9DD;
   border-radius: 20px;
-  color: #4E6169;
-  padding: 10px;
-  margin: 30px;
+  color: gray;
+  padding: 13px;
+  margin: 10px 0 30px 0;
   border: none;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
+  font-size: 15px;
+
 }
 
 
 .delete:hover {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  color: white;
 }
 
 .allPosts .aPost{
   margin: 20px;
   text-decoration:none;
   color:#000;
-  background:#D2D9DD;
+  background:#ffc;
   display:block;
-  height:13em;
-  width:13em;
-  padding:3em 1em;
+  height:8em;
+  width:10em;
+  padding:2em 1em;
   overflow:auto;
   -moz-box-shadow:5px 5px 7px rgba(33,33,33,1);
   -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
@@ -298,3 +351,6 @@ p {
   top:-10px;
 }
 
+.poster {
+  margin: 0 5px;
+}
