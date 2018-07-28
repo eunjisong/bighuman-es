@@ -2,7 +2,7 @@
 
 .App {
   text-align: center;
-  min-width: 230px;
+  min-width: 300px;
   font-family: "Courier New";
   color: gray;
 
@@ -41,6 +41,7 @@ p {
   display: flex;
   height: 70px;
   margin-top: 40px;
+  margin-left: -20px;
   justify-content: center;
 }
 
@@ -123,6 +124,8 @@ p {
   justify-content: center;
   list-style-type: none;
   margin-top: -40px;
+  margin-left: -40px;
+  max-width: 1000px;
 }
 
 .names li {
