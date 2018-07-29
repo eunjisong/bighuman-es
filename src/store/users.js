@@ -41,18 +41,18 @@ export const emptyPosts = () =>
 
 
 
-        export default ( state=[], action) => {
-          switch(action.type) {
-            case GET_USER:
-              return action.users;
-            case NEW_POST:
-              let idx = +action.user.data.id - 1
-              state.data.splice(idx, 1, action.user.data)
-              return { ...state, data: state.data}
-            case CLEAR_POSTS:
-            const usersNoPosts = state.data.map( a => {a.posts = []; return a;})
-            return { ...state, data: usersNoPosts}
-            default:
-             return state;
-          }
-      }
+export default ( state=[], action) => {
+  switch(action.type) {
+    case GET_USER:
+      return action.users;
+    case NEW_POST:
+      let idx = +action.user.data.id - 1
+      state.data.splice(idx, 1, action.user.data)
+      return { ...state, data: state.data}
+    case CLEAR_POSTS:
+    const usersNoPosts = state.data.map( a => {a.posts = []; return a;})
+    return { ...state, data: usersNoPosts}
+    default:
+      return state;
+  }
+}
