@@ -1,5 +1,3 @@
-// I haven't hooked up the server yet it gives me crossDomain issues.
-
 import axios from 'axios';
 const server = 'https://bh-interview.now.sh';
 
