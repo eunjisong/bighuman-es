@@ -6,15 +6,13 @@ class UserPosts extends React.Component {
   render(){
     const { user } = this.props
 
-
     return(
 
        <div className="userPosts">
 
               {
                user.posts.length > 0 ?
-                user.posts.reverse() &&
-                user.posts.map((aPost, i) => {
+                user.posts.slice().reverse().map((aPost, i) => {
                   return (
                     <div key={user.id + i} className="singlePost">
 
